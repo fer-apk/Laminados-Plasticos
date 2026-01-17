@@ -661,19 +661,14 @@
 
 
 
-<!-- 3ra seccion  -->
 
 
 
 
+<!-- 3era seccion -->
+  <section class="scc3-section">
+  
 
-  <!-- 3ra seccion  aislamientos para cada necesidad-->
-
-  <section id="aislamientos"> 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aislamientos para cada necesidad | Tu Empresa</title>
-    <meta name="description" content="Ofrecemos una amplia gama de productos de aislamiento térmico y acústico para todo tipo de proyectos.">
     <style>
         * {
             margin: 0;
@@ -681,585 +676,628 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
+        .scc3-section {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px 20px;
         }
 
-        /* Estilos para el header y navegación (ejemplo) */
-     
-        .container {
-            max-width: 1280px;
+        .scc3-container {
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
         }
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #1B5A9B;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #4b5563;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #1B5A9B;
-        }
-
-        /* Estilos específicos para la sección de productos */
-        .products-section {
-            width: 100%;
-            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
-            padding: 80px 16px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .bg-decoration {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 320px;
-            height: 320px;
-            background: #93c5fd;
-            border-radius: 50%;
-            opacity: 0.3;
-            transform: translate(-50%, -50%);
-        }
-
-        .content-wrapper {
-            max-width: 1280px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .section-title {
-            font-size: 48px;
-            font-weight: bold;
-            color: #4b5563;
-            margin-bottom: 48px;
+        .scc3-title {
             text-align: center;
+            color: #2c5282;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: scc3-fadeInDown 0.8s ease forwards;
         }
 
-        .blue-card {
-            background: #1B5A9B;
-            border-radius: 24px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            padding: 48px;
-        }
-
-        .tabs-container {
+        .scc3-tabs {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 32px;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
         }
 
-        .tab-button {
-            padding: 12px 24px;
-            border-radius: 9999px;
+        .scc3-tab {
+            padding: 8px 18px;
+            border-radius: 999px;
+            border: 1px solid #2c5282;
+            background: rgba(255,255,255,0.7);
+            color: #2c5282;
+            font-size: 0.95rem;
             font-weight: 600;
-            font-size: 16px;
-            border: none;
             cursor: pointer;
-            transition: all 0.3s ease;
-            background: white;
-            color: #1B5A9B;
+            transition: all 0.25s ease;
+            outline: none;
         }
 
-        .tab-button:hover {
-            background: #dbeafe;
-        }
-
-        .tab-button.active {
-            background: #bfdbfe;
-            color: #1e3a8a;
-        }
-
-        .dropdown-select {
-            padding: 12px 24px;
-            border-radius: 9999px;
-            font-weight: 600;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: white;
-            color: #1B5A9B;
-            width: 100%;
-            max-width: 250px;
-        }
-
-        .dropdown-select:hover {
-            background: #dbeafe;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            align-items: start;
-        }
-
-        .product-info {
+        .scc3-tab.scc3-active {
+            background: #2c5282;
             color: white;
+            box-shadow: 0 6px 16px rgba(44, 82, 130, 0.35);
         }
 
-        .product-title {
-            font-size: 36px;
-            font-weight: bold;
-            margin-bottom: 24px;
+        .scc3-carousel-wrapper {
+            position: relative;
+            opacity: 0;
+            animation: scc3-fadeInUp 1s ease 0.3s forwards;
         }
 
-        .product-description {
-            font-size: 18px;
-            line-height: 1.75;
-            margin-bottom: 24px;
-        }
-
-        .specs-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 16px;
-        }
-
-        .spec-item {
+        .scc3-carousel-container {
             display: flex;
-            gap: 8px;
-            margin-bottom: 12px;
-            line-height: 1.5;
-        }
-
-        .spec-label {
-            font-weight: 600;
-            min-width: fit-content;
-        }
-
-        .products-section .image-container {
+            align-items: center;
+            gap: 40px;
             background: white;
-            border-radius: 16px;
-            padding-right: 24px;
-            padding-left: 24px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .scc3-left-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .scc3-main-image {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: static;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        .products-section .product-image {
-            width: 100%;
-            height: 320px;
+        .scc3-main-image.scc3-active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .scc3-main-image img {
+            max-width: 100%;
+            max-height: 100%;
             object-fit: contain;
-            border-radius: 12px;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
         }
 
-        .cta-container {
+        .scc3-complements-title {
+            font-size: 1.8rem;
+            color: #1a365d;
+            font-style: italic;
+            font-weight: 600;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: scc3-fadeIn 0.8s ease 0.6s forwards;
+        }
+
+        .scc3-complements {
             display: flex;
+            gap: 30px;
             justify-content: center;
-            margin-top: 32px;
         }
 
-        .cta-button {
-            background: #E83C39;
-            color: white;
-            font-weight: bold;
-            font-size: 20px;
-            padding: 16px 48px;
-            border-radius: 9999px;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        .scc3-complement-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .scc3-complement-item.scc3-active {
+            animation: scc3-slideUp 0.6s ease forwards;
+        }
+
+        .scc3-complement-item:nth-child(1) { animation-delay: 0.8s; }
+        .scc3-complement-item:nth-child(2) { animation-delay: 1s; }
+        .scc3-complement-item:nth-child(3) { animation-delay: 1.2s; }
+
+        .scc3-complement-circle {
+            width: 140px;
+            height: 140px;
+            background: #e2e8f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
             transition: all 0.3s ease;
         }
 
-        .cta-button:hover {
-            background: #E83C39;
-            transform: scale(1.05);
+        .scc3-complement-circle:hover {
+            transform: scale(1.1);
+            background: #cbd5e0;
         }
 
-        /* Estilos para el footer (ejemplo) */
-        footer {
-            background-color: #1B5A9B;
+        .scc3-complement-circle img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+        }
+
+        .scc3-complement-name {
+            font-size: 1rem;
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        .scc3-complement-item:nth-child(1) .scc3-complement-name { color: #48bb78; }
+        .scc3-complement-item:nth-child(2) .scc3-complement-name { color: #ed8936; }
+        .scc3-complement-item:nth-child(3) .scc3-complement-name { color: #48bb78; }
+
+        .scc3-right-section {
+            flex: 0 0 450px;
+            background: linear-gradient(135deg, #003661 0%, #003661 100%);
+            padding: 50px;
+            border-radius: 20px;
             color: white;
-            padding: 3rem 0;
+            opacity: 0;
+            transform: translateX(50px);
+        }
+
+        .scc3-right-section.scc3-active {
+            animation: scc3-slideInRight 0.8s ease forwards;
+        }
+
+        .scc3-product-code {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .scc3-product-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
             text-align: center;
         }
 
-        .footer-content {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .scc3-characteristics-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 15px;
         }
 
-        /* Media queries para responsividad */
-        @media (max-width: 1024px) {
-            .section-title {
-                font-size: 40px;
+        .scc3-characteristic {
+            font-size: 1rem;
+            margin-bottom: 12px;
+            padding-left: 10px;
+            opacity: 0;
+        }
+
+        .scc3-characteristic.scc3-active {
+            animation: scc3-fadeInLeft 0.5s ease forwards;
+        }
+
+        .scc3-characteristic:nth-child(1) { animation-delay: 1.4s; }
+        .scc3-characteristic:nth-child(2) { animation-delay: 1.6s; }
+        .scc3-characteristic:nth-child(3) { animation-delay: 1.8s; }
+        .scc3-characteristic:nth-child(4) { animation-delay: 2s; }
+
+        .scc3-navigation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .scc3-nav-btn {
+            background: linear-gradient(135deg, #00a86b 0%, #00c77f 100%);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px #003661;
+        }
+
+        .scc3-nav-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px #003661;
+        }
+
+        .scc3-nav-btn:active {
+            transform: scale(0.95);
+        }
+
+        .scc3-indicators {
+            display: flex;
+            gap: 10px;
+        }
+
+        .scc3-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #cbd5e0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .scc3-indicator.scc3-active {
+            background: #00a86b;
+            width: 40px;
+            border-radius: 6px;
+        }
+
+        .scc3-cta-button {
+            background: linear-gradient(135deg, #003661 0%, #003661 100%);
+            color: white;
+            border: none;
+            padding: 20px 60px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 50px;
+            display: inline-block;
+            box-shadow: 0 10px 30px #003661;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: scc3-fadeInUp 0.8s ease 2.2s forwards;
+        }
+
+        .scc3-cta-wrapper {
+            text-align: center;
+        }
+
+        .scc3-cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px #003661;
+        }
+
+        @keyframes scc3-fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
             }
-            
-            .blue-card {
-                padding: 40px 32px;
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scc3-fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scc3-slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scc3-slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scc3-fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes scc3-fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .scc3-carousel-container {
+                flex-direction: column;
+            }
+
+            .scc3-right-section {
+                flex: 1;
+                width: 100%;
             }
         }
 
         @media (max-width: 768px) {
-            .section-title {
-                font-size: 32px;
+            .scc3-title {
+                font-size: 1.8rem;
             }
 
-            .blue-card {
-                padding: 32px 24px;
+            .scc3-tabs {
+                margin-bottom: 20px;
+                padding: 0 10px;
             }
 
-            .product-grid {
-                grid-template-columns: 1fr;
+            .scc3-tab {
+                font-size: 0.85rem;
+                padding: 6px 14px;
             }
 
-            .product-title {
-                font-size: 28px;
+            .scc3-complements {
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                gap: 10px;
             }
 
-            .product-description {
-                font-size: 16px;
+            .scc3-complement-circle {
+                width: 90px;
+                height: 90px;
             }
-            
-            .tabs-container {
-                flex-direction: column;
-            }
-            
-            .dropdown-select {
-                max-width: 100%;
-            }
-            
-            .nav-links {
-                display: none; /* En móviles, normalmente se usa un menú hamburguesa */
-            }
-        }
 
-        @media (max-width: 480px) {
-            .section-title {
-                font-size: 28px;
+            .scc3-complement-circle img {
+                max-width: 70%;
+                max-height: 70%;
             }
-            
-            .product-title {
-                font-size: 24px;
+
+            .scc3-complement-name {
+                font-size: 0.85rem;
             }
-            
-            .cta-button {
-                padding: 14px 32px;
-                font-size: 18px;
+
+            .scc3-product-code {
+                font-size: 2rem;
+            }
+
+            .scc3-right-section {
+                padding: 30px;
             }
         }
     </style>
-</head>
-<body>
+    <div class="scc3-container">
+        <h1 class="scc3-title">Expertos en Soluciones para Techos, Muros y Aislamientos</h1>
 
-    <!-- Sección de productos -->
-    <section class="products-section" id="productos">
-        <div class="bg-decoration"></div>
-        
-        <div class="content-wrapper">
-            <h2 class="section-title">Aislamientos para cada necesidad</h2>
-            <div class="blue-card">
-                <div class="tabs-container">
-                    <button class="tab-button active" data-product="1">Colchoneta MBI</button>
-                    <button class="tab-button" data-product="5">Termofoam</button>
-                    <button class="tab-button" data-product="12">Panel Techo</button>
-                    
-                    <select class="dropdown-select" id="productDropdown" aria-label="Selecciona un producto">
-                        <option value="">Más productos...</option>
-                        <option value="2">Aislhogar</option>
-                        <option value="3">Black Acoustic</option>
-                        <option value="6">AC Foam</option>
-                        <option value="7">TPO</option>
-                        <option value="8">Lana Mineral AFB</option>
-                        <option value="9">Toprock</option>
-                        <option value="10">RFOIL Estructuras</option>
-                        <option value="11">RFOIL AC</option>
-                        <option value="4">Foamular</option>
-                        <option value="13">Panel Muro</option>
-                        <option value="14">Acrylit</option>
-                        <option value="15">Policarbonato</option>
-                        <option value="16">Glasbord</option>
-                        <option value="17">Sanigrid</option>
-                        <option value="18">Glasliner</option>
-                        <option value="19">Aisla Film</option>
-                    </select>
+        <div class="scc3-tabs" id="scc3Tabs"></div>
+
+        <div class="scc3-carousel-wrapper">
+            <div class="scc3-carousel-container">
+                <div class="scc3-left-section">
+                    <div class="scc3-main-image" id="scc3MainImage"></div>
+
+                    <h2 class="scc3-complements-title">Complementos recomendados:</h2>
+
+                    <div class="scc3-complements" id="scc3Complements"></div>
                 </div>
 
-                <div class="product-grid">
-                    <div class="product-info">
-                        <h3 class="product-title" id="productTitle"></h3>
-                        <p class="product-description" id="productDescription"></p>
-                        
-                        <div>
-                            <h4 class="specs-title">Especificaciones</h4>
-                            <div id="productSpecs"></div>
-                        </div>
-                    </div>
-
-                    <div class="image-container">
-                        <img id="productImage" class="product-image" src="" alt="">
-                    </div>
-                </div>
+                <div class="scc3-right-section" id="scc3RightSection"></div>
             </div>
 
-            <div class="cta-container">
-                <button class="cta-button">Contactar a un asesor</button>
+            <div class="scc3-navigation">
+                <button class="scc3-nav-btn" onclick="scc3PreviousProduct()">‹</button>
+                <div class="scc3-indicators" id="scc3Indicators"></div>
+                <button class="scc3-nav-btn" onclick="scc3NextProduct()">›</button>
+            </div>
+
+            <div class="scc3-cta-wrapper">
+                <a class="scc3-cta-button" href="https://wa.me/523312195252" target="_blank" rel="noopener noreferrer">Cotizar Hoy</a>
             </div>
         </div>
-    </section>
-
+    </div>
 
     <script>
-        // Datos de los productos
-        var products = [
-            { id: 1, name: "Colchoneta MBI", title: "Colchoneta MBI", description: "MBI Rollo flexible de aislamiento térmico-acústico con fibras de vidrio aglutinadas con resinas termofijas recubierta con una barrera de vapor.", specs: [
-                { label: "Tipo de aislamiento:", value: "Fibra de vidrio en manta" },
-                { label: "Densidad:", value: "10 – 16 kg/m³ (según especificación del proyecto)" },
-                { label: "Presentación:", value: "Rollos con recubrimiento de aluminio reforzado" },
-                { label: "Conductividad térmica:", value: "0.039 W/m·K aprox." },
-                { label: "Espesor disponible:", value: "2\" – 3\" – 4\"" },
-                { label: "Dimensiones:", value: "Rollos de 1.27 m y 1.83 m de ancho, longitud 30.48 m y 15.24 m" }
-            ], image: "images/3eraseccion/Colchoneta MBI/Colchoneta MBI.webp" },
-            { id: 2, name: "Aislhogar", title: "AISLHOGAR", description: "Rollos flexibles de color rosa disponibles en dos presentaciones: con barrera de vapor y sin barrera de vapor.", specs: [
-                { label: "Tipo de aislamiento:", value: "Fibra de vidrio flexible" },
-                { label: "Presentación:", value: "Rollos de color rosa" },
-                { label: "Aplicaciones:", value: "Interior de muros y canceles divisorios, sobre falsos plafones y como absorbente de sonido" },
-                { label: "Ancho:", value: "0.41 m y 0.61 m" },
-                { label: "Largo:", value: "15.24 m" },
-                { label: "Versiones:", value: "Con barrera de vapor y sin barrera de vapor" }
-            ], image: "images/3eraseccion/AISL Hogar/aislhogar.webp" },
-            { id: 3, name: "Black Acoustic", title: "BLACK ACOUSTIC BOARD", description: "Aislamiento termoacústico fabricado con fibra de vidrio aglutinada y resina fenólica de fraguado térmico.", specs: [
-                { label: "Material:", value: "Fibra de vidrio de alta densidad" },
-                { label: "Color:", value: "Negro con velo de fibra de vidrio" },
-                { label: "Aplicaciones:", value: "Teatros, estudios de sonido, centros de arte y presentaciones" },
-                { label: "Espesores:", value: "1\", 1.5\", 2\"" },
-                { label: "Dimensiones:", value: "24\" x 48\" / 48\" x 96\"" },
-                { label: "Desempeño:", value: "Excelente desempeño acústico" }
-            ], image: "images/3eraseccion/Black Acoustic Board/black-acoustic.webp" },
-            { id: 4, name: "Foamular", title: "FOAMULAR", description: "Aislamiento térmico de espuma rígida de poliestireno extruido en paneles manufacturados por el proceso Hydrovac, exclusivo de OwenCorning.", specs: [
-                { label: "Material:", value: "Poliestireno extruido (XPS)" },
-                { label: "Proceso:", value: "Hydrovac exclusivo de OwenCorning" },
-                { label: "Estructura:", value: "Celdas cerradas con paredes inter adheridas" },
-                { label: "Aplicaciones:", value: "Muros, techos y pisos en todos los sistemas constructivos" },
-                { label: "Placas:", value: "1.22 x 2.44 m (largos especiales disponibles)" },
-                { label: "Espesores:", value: "25 lb/in² de 1\", 1.5\", 2\", 3\" y 4\" | 40 lb/in² de 2\" | 60 lb/in² de 2\"" }
-            ], image: "images/3eraseccion/Foamular/Foamular.webp" },
-            { id: 5, name: "Termofoam", title: "TERMOFOAM", description: "Aislante térmico de espuma rígida de poliestireno extruido en forma de placa con estructura de celdas cerradas.", specs: [
-                { label: "Material:", value: "Poliestireno extruido" },
-                { label: "Resistencia térmica:", value: "R-6 por pulgada a largo plazo" },
-                { label: "Aplicaciones:", value: "Naves industriales, centros comerciales, casetas avícolas y porcícolas" },
-                { label: "Acabados especiales:", value: "Con vinil y acabados higiénicos para conservación y congelación" },
-                { label: "Placas:", value: "1.22 x 2.44 m y 1.22 x 6.10 m" },
-                { label: "Espesores:", value: "1\", 1.5\", 2\" y 3\"" }
-            ], image: "images/3eraseccion/Termofoam/Termofoam sin fondo.webp" },
-            { id: 6, name: "AC Foam", title: "AC FOAM", description: "Espuma de polisocianurato de avanzada tecnología, con características superiores de resistencia al fuego.", specs: [
-                { label: "Material:", value: "Polisocianurato" },
-                { label: "Resistencia térmica:", value: "R-6 por pulgada a largo plazo" },
-                { label: "Resistencia al fuego:", value: "Características superiores" },
-                { label: "Aplicación principal:", value: "Aislamiento térmico de techos metálicos o de concreto" },
-                { label: "Medida estándar:", value: "1.22 x 2.44 m" },
-                { label: "Espesores:", value: "Desde 1\" hasta 4\" (longitudes especiales disponibles)" }
-            ], image: "images/3eraseccion/AC Foam/AC-Foam.webp" },
-            { id: 7, name: "TPO", title: "TPO + AISLAMIENTO", description: "TPO (poliolefina termoplástica) utilizado como sistema de impermeabilización con flexibilidad y resistencia del hule.", specs: [
-                { label: "Material:", value: "Poliolefina termoplástica" },
-                { label: "Características:", value: "Conserva color, reflectividad y resistencia por muchos años" },
-                { label: "Aplicaciones:", value: "Edificios industriales y comerciales, retechados sobre lámina metálica, techos de madera" },
-                { label: "Color:", value: "Blanco" },
-                { label: "Espesores:", value: "45 mil y 60 mil" }
-            ], image: "images/3eraseccion/TPO + Aislamientos/TPO+Aislamiento.webp" },
-            { id: 8, name: "Lana Mineral AFB", title: "LANA MINERAL AFB", description: "Aislamiento diseñado específicamente para aplicaciones en sistemas de paredes y/o pisos donde el desempeño acústico y resistencia al fuego son principales preocupaciones.", specs: [
-                { label: "Material:", value: "Lana mineral incombustible" },
-                { label: "Características:", value: "Ligero, propiedades de amortiguación acústica, dimensionalmente estable" },
-                { label: "Aplicaciones:", value: "Muros divisorios, recintos y salones, protección contra fuego estructural" },
-                { label: "Dimensiones:", value: "0.61 m y 1.22 m" },
-                { label: "Espesores:", value: "Desde 1\" hasta 6\"" }
-            ], image: "images/3eraseccion/Lana Mineral AFB/Lana-mineral-AFB.webp" },
-            { id: 9, name: "Toprock", title: "LANA MINERAL TOPROCK", description: "Aislamiento de lana mineral rígida de doble densidad, con una capa superior rígida para durabilidad y mayor fuerza.", specs: [
-                { label: "Material:", value: "Lana mineral de doble densidad" },
-                { label: "Características:", value: "Alta densidad, reduce transmisión de sonido" },
-                { label: "Aplicaciones:", value: "Cubiertas metálicas, madera, concreto o compuestas" },
-                { label: "Compatibilidad:", value: "Impermeabilización de cualquier tipo" },
-                { label: "Beneficio:", value: "Eliminación de ruidos causados por lluvia o granizo" },
-                { label: "Placas:", value: "0.914 m x 1.22 m" },
-                { label: "Espesores:", value: "Desde 1\" hasta 4\" (típicos)" }
-            ], image: "images/3eraseccion/Lana Mineral Toprock/Lana-Mineral-Toprock.webp" },
-            { id: 10, name: "RFOIL Estructuras", title: "RFOIL ESTRUCTURAS METÁLICAS", description: "RFOIL Ultra NT es una lámina de barrera radiante de alta resistencia compuesta de material de polietileno tejido ligado entre dos superficies de aluminio altamente reflejante.", specs: [
-                { label: "Material:", value: "Polietileno tejido con aluminio reflejante" },
-                { label: "Tipo:", value: "Barrera radiante" },
-                { label: "Aplicaciones:", value: "Edificaciones prefabricadas de acero, graneros modulares, construcciones agrícolas" },
-                { label: "Usos adicionales:", value: "Techos metálicos residenciales, depósitos, establos" }
-            ], image: "images/3eraseccion/RFoil Estructura Metalica/R-Foil-Estructura-Métalica.webp" },
-            { id: 11, name: "RFOIL AC", title: "RFOIL AIRE ACONDICIONADO", description: "Producto compuesto de capa simple o doble de burbujas de polietileno adherida a aluminio metalizado, diseñado para reducir ganancia o pérdida de calor radiante.", specs: [
-                { label: "Material:", value: "Burbujas de polietileno con aluminio metalizado" },
-                { label: "Versiones:", value: "White poly/single bubble/foil | White poly/double bubble/foil | RFOIL Duct insulation | Premium HVAC" },
-                { label: "Aplicaciones:", value: "Edificaciones prefabricadas de acero, graneros, construcciones agrícolas, techos metálicos" },
-                { label: "Características:", value: "Quick Seam 1 tab, Quick Seam 2 tabs, Std R-4.2, Metalized Seam Tape" }
-            ], image: "images/3eraseccion/RFoil Aire Acondicionado/RFoil-Aire-Acondicionado.webp" },
-            { id: 12, name: "Panel Techo", title: "PANEL PARA TECHO", description: "Panel Imperium Panel Aislado Marca Ternium, tipo sándwich metálico aislante para cubiertas prefabricadas con núcleo de poliuretano.", specs: [
-                { label: "Marca:", value: "Ternium - Imperium" },
-                { label: "Composición:", value: "Núcleo de espuma rígida de poliuretano + dos caras de acero US Steel pintro" },
-                { label: "Aplicaciones:", value: "Agroindustria, comercial, industrial, habitacional" },
-                { label: "Calibres:", value: "26/26, 26/28" },
-                { label: "Espesores:", value: "Desde 1\" hasta 6\"" },
-                { label: "Pintura:", value: "Poliéster estándar" },
-                { label: "Colores:", value: "Blanco y Arena" },
-                { label: "Ancho efectivo:", value: "1.00 m" }
-            ], image: "images/3eraseccion/Panel para Techo/Panel-Termico-para-Techo.webp" },
-            { id: 13, name: "Panel Muro", title: "PANEL PARA MURO", description: "Panel sándwich metálico aislante para muros prefabricados con núcleo de espuma rígida de poliuretano y caras de acero US Steel.", specs: [
-                { label: "Composición:", value: "Núcleo de poliuretano + dos caras de acero US Steel pintro adheridas químicamente" },
-                { label: "Aplicaciones:", value: "Casetas, comercial, industrial, habitacional" },
-                { label: "Calibres:", value: "26/26" },
-                { label: "Espesores:", value: "Desde 1\" hasta 6\"" },
-                { label: "Pintura:", value: "Poliéster estándar" },
-                { label: "Acabado:", value: "Cara exterior o interior liso" },
-                { label: "Colores:", value: "Blanco y Arena" },
-                { label: "Ancho efectivo:", value: "1.00 m" }
-            ], image: "images/3eraseccion/Panel para Muro/panel-multymuro.webp" },
-            { id: 14, name: "Acrylit", title: "LÁMINA ACRYLIT G10", description: "Lámina traslúcida con gran difusión de luz para iluminación natural en espacios industriales y comerciales.", specs: [
-                { label: "Luminosidad:", value: "¡Hasta un 95%!" },
-                { label: "Aplicaciones:", value: "Naves industriales, bodegas, grandes almacenes, invernaderos, soluciones arquitectónicas" },
-                { label: "Características:", value: "Gran difusión de luz, excelente iluminación natural" },
-                { label: "Beneficios:", value: "Ahorro de energía eléctrica, acabado Gel Coat, protección UV" },
-                { label: "Ventajas:", value: "Bajo costo de reposición" }
-            ], image: "images/3eraseccion/Lámina Acrylit G10/lámia-acrylit-G10.webp" },
-            { id: 15, name: "Policarbonato", title: "POLICARBONATO CELULAR MAKROLON Y ACCESO", description: "Policarbonato celular de alta resistencia para construcciones industriales, residenciales y comerciales.", specs: [
-                { label: "Aplicaciones:", value: "Construcciones industriales y residenciales, centros comerciales, instalaciones deportivas, invernaderos" },
-                { label: "Seguridad:", value: "No propaga la flama y es autoextingible" },
-                { label: "Instalación:", value: "Facilidad de curvado en frío" },
-                { label: "Características:", value: "Buen transmisor de luz, ahorro de energía eléctrica" },
-                { label: "Resistencia:", value: "Ligero, 250 veces más resistente que el vidrio" }
-            ], image: "images/3eraseccion/Policarbonato Celular/Policarbonato.webp" },
-            { id: 16, name: "Glasbord", title: "GLASBORD Y ACCESORIOS", description: "Material de construcción semirrígido hecho de plástico reforzado de fibra de vidrio (FRP), resistente a la humedad.", specs: [
-                { label: "Material:", value: "Plástico reforzado de fibra de vidrio (FRP)" },
-                { label: "Aplicaciones:", value: "Acabados de muros interiores con requerimientos higiénicos" },
-                { label: "Características:", value: "Resistente, fácil de limpiar, alta higiene" },
-                { label: "Ventajas:", value: "No cría hongos, no se corrompe ni corroe" },
-                { label: "Clasificación:", value: "Panel de clase C" }
-            ], image: "images/3eraseccion/Glassboard/Glassbord.webp" },
-            { id: 17, name: "Sanigrid", title: "SANIGRID", description: "Sistema de suspensión para plafones/cielos rasos fabricado totalmente con fibra de vidrio, resistente a humedad y químicos.", specs: [
-                { label: "Material:", value: "Fibra de vidrio" },
-                { label: "Aplicación:", value: "Sistema de suspensión para plafones/cielos rasos" },
-                { label: "Características:", value: "No se oxida, abolla o corroe" },
-                { label: "Ventajas:", value: "Resistente a la humedad y la corrosión" },
-                { label: "Cumplimiento:", value: "Cumple con los requisitos normativos" }
-            ], image: "images/3eraseccion/Sanigrid/Sanigrid.webp" },
-            { id: 18, name: "Glasliner", title: "GLASLINER Y ACCESORIOS", description: "Sistema constructivo para proteger, recubrir y decorar áreas que exigen máxima resistencia, higiene y facilidad de limpieza.", specs: [
-                { label: "Aplicaciones:", value: "Lugares con alta asepsia, sector salud, industrial, comercial, uso residencial" },
-                { label: "Resistencia:", value: "Alta resistencia al impacto y a productos químicos, abrasivos y bacterias" },
-                { label: "Higiene:", value: "No genera hongos, no absorbe olores" },
-                { label: "Mantenimiento:", value: "Limpieza fácil y rápida" }
-            ], image: "images/3eraseccion/Gasliner/Gasliner.webp" },
-            { id: 19, name: "Aisla Film", title: "AISLA FILM", description: "Película de control solar metalizada con aluminio para reducir el calor y el consumo de energía eléctrica por aires acondicionados.", specs: [
-                { label: "Material:", value: "Película metalizada con aluminio" },
-                { label: "Aplicaciones:", value: "Naves industriales, bodegas, edificios corporativos, centros comerciales" },
-                { label: "Beneficios:", value: "Disminuye el calor, reduce decoloración interior" },
-                { label: "Ahorro:", value: "Baja costos de mantenimiento de AC, disminuye factura de luz" },
-                { label: "Protección:", value: "Aumenta la protección en la piel" }
-            ], image: "images/3eraseccion/Aisla Film/Aisla-Film.webp" }
+        const scc3Products = [
+            {
+                code: "T-2 ACRYLIT",
+                image: "images/3era seccion/productos/T-2-Acrylit.webp",
+                description: "Acrylit G18 combina difusión de luz y durabilidad del acrílico con resistencia mecánica por su refuerzo en fibra de vidrio. Resina 100% acrílica reforzada que ofrece excelente difusión sin penumbras y alta homogeneidad de propiedades.",
+                complements: []
+            },
+            {
+                code: "T-81 POLIACRYL",
+                image: "images/3era seccion/productos/T-81-Poliacryl.webp",
+                description: "Poliacryl G10 translúcido: resistencia para todo uso, iluminación, buena apariencia y versatilidad a bajo costo. Resina de poliéster y acrílica con fibra de vidrio y Gel Coat para mayor resistencia a intemperie.",
+                complements: []
+            },
+            {
+                code: "ULTRATEJA PVC",
+                image: "images/3era seccion/productos/Ultrateja-PVC.webp",
+                description: "Lámina de PVC de 94 cm de ancho efectivo. Largos: 2.19 m, 3.29 m, 4.81 m, 6.57 m. Usos: residencial, salones de eventos, fincas, lienzos charros, marquesinas, sombreados, caballerizas, fachaletas, quioscos, albercas, cabañas, terrazas.",
+                complements: []
+            },
+            {
+                code: "T-95 POLIACRYL",
+                image: "images/3era seccion/productos/T-95-Poliacryl.webp",
+                description: "Poliacryl G10 translúcido con Gel Coat para superior resistencia a la intemperie, iluminación y versatilidad a bajo costo. Puede fabricarse con características retardantes a la flama y baja densidad de humos.",
+                complements: []
+            },
+            {
+                code: "TLA3-136",
+                image: "images/3era seccion/productos/TLA3-136.webp",
+                description: "Lámina tricapa de 136 cm de ancho con capa central aislante. Vida útil >30 años, alto rendimiento y durabilidad.",
+                complements: []
+            },
+            {
+                code: "T-952 ACRYLIT",
+                image: "images/3era seccion/productos/T-952-Acrylit.webp",
+                description: "Acrylit tipo T-952 compatible con panel metálico tipo Galvatecho de 2.0″, 98 cm de ancho efectivo. Fijación con fleje metálico cal. 22 a presión y pija galvanizada con arandela de neopreno en cada extremo.",
+                complements: []
+            },
+            {
+                code: "Makrolon / Policarbonato",
+                image: "images/3era seccion/productos/Makrolon-Policarbonato.webp",
+                description: "Laminado plástico extruido de resina de policarbonato con tecnología Bayer y protección UV. Alta transmisión de luz, flexibilidad, ligereza, transparencia y alta resistencia al impacto.",
+                complements: []
+            },
+            {
+                code: "T-18 ACRYLIT",
+                image: "images/3era seccion/productos/T-18-Acrylit.webp",
+                description: "Acrylit T-18 con garantía Stabilit 18 años. Compatible con CM-101 o R-101. Ancho efectivo 1.01 m, fijación expuesta con pija galvanizada 1/4 con arandela de neopreno cada 29 cm. Uso en bodegas y naves; acabado gel coat para mayor vida útil.",
+                complements: []
+            },
+            {
+                code: "T-218 ACRYLIT",
+                image: "images/3era seccion/productos/T-218-Acrylit.webp",
+                description: "Acrylit G18: difusión de luz y durabilidad con refuerzo de fibra de vidrio. Proceso continuo y control de calidad para propiedades homogéneas. Compatible con KR-18, Galvatecho y Multytecho.",
+                complements: []
+            }
         ];
 
-        function getProductById(id) {
-            for (var i = 0; i < products.length; i++) {
-                if (products[i].id === id) return products[i];
-            }
-            return null;
+        let scc3CurrentIndex = 0;
+        let scc3AnimationTimeout;
+
+        function scc3CreateProductHTML(product) {
+            return {
+                mainImage: `<img src="${product.image}" alt="${product.code}">`,
+                complements: product.complements.map(comp => `
+                    <div class="scc3-complement-item">
+                        <div class="scc3-complement-circle">
+                            <img src="${comp.image}" alt="${comp.name}">
+                        </div>
+                        <div class="scc3-complement-name">${comp.name}</div>
+                    </div>
+                `).join(''),
+                rightSection: `
+                    <div class="scc3-product-code">${product.code}</div>
+                    <div class="scc3-product-description">${product.description}</div>
+                `
+            };
         }
 
-        var currentProduct = getProductById(1);
+        function scc3UpdateProduct(index) {
+            const product = scc3Products[index];
+            const html = scc3CreateProductHTML(product);
 
-        function renderProduct(product) {
-            document.getElementById('productTitle').textContent = product.title;
-            document.getElementById('productDescription').textContent = product.description;
-            document.getElementById('productImage').src = product.image;
-            document.getElementById('productImage').alt = product.title;
+            // Remove active classes
+            document.getElementById('scc3MainImage').classList.remove('scc3-active');
+            document.getElementById('scc3RightSection').classList.remove('scc3-active');
+            document.querySelectorAll('.scc3-complement-item').forEach(item => {
+                item.classList.remove('scc3-active');
+            });
+            document.querySelectorAll('.scc3-characteristic').forEach(char => {
+                char.classList.remove('scc3-active');
+            });
 
-            var specsContainer = document.getElementById('productSpecs');
-            specsContainer.innerHTML = '';
+            // Update content after brief delay
+            setTimeout(() => {
+                document.getElementById('scc3MainImage').innerHTML = html.mainImage;
+                document.getElementById('scc3Complements').innerHTML = html.complements;
+                document.getElementById('scc3RightSection').innerHTML = html.rightSection;
 
-            for (var i = 0; i < product.specs.length; i++) {
-                var spec = product.specs[i];
-                var specDiv = document.createElement('div');
-                specDiv.className = 'spec-item';
-                
-                var labelSpan = document.createElement('span');
-                labelSpan.className = 'spec-label';
-                labelSpan.textContent = spec.label;
-                
-                var valueSpan = document.createElement('span');
-                valueSpan.textContent = spec.value;
-                
-                specDiv.appendChild(labelSpan);
-                specDiv.appendChild(valueSpan);
-                specsContainer.appendChild(specDiv);
-            }
+                // Add active classes to trigger animations
+                setTimeout(() => {
+                    document.getElementById('scc3MainImage').classList.add('scc3-active');
+                    document.getElementById('scc3RightSection').classList.add('scc3-active');
+                    document.querySelectorAll('.scc3-complement-item').forEach(item => {
+                        item.classList.add('scc3-active');
+                    });
+                    document.querySelectorAll('.scc3-characteristic').forEach(char => {
+                        char.classList.add('scc3-active');
+                    });
+                }, 50);
+            }, 300);
 
-            currentProduct = product;
-        }
+            // Update indicators
+            document.querySelectorAll('.scc3-indicator').forEach((indicator, i) => {
+                indicator.classList.toggle('scc3-active', i === index);
+            });
 
-        // Inicializar con el primer producto
-        renderProduct(currentProduct);
-
-        // Configurar eventos para los botones de pestañas
-        var tabButtons = document.querySelectorAll('.tab-button');
-        for (var i = 0; i < tabButtons.length; i++) {
-            tabButtons[i].addEventListener('click', function() {
-                for (var j = 0; j < tabButtons.length; j++) {
-                    tabButtons[j].classList.remove('active');
-                }
-                this.classList.add('active');
-                document.getElementById('productDropdown').value = '';
-                var productId = parseInt(this.getAttribute('data-product'));
-                var prod = getProductById(productId);
-                if (prod) renderProduct(prod);
+            // Update tabs
+            document.querySelectorAll('.scc3-tab').forEach((tab, i) => {
+                tab.classList.toggle('scc3-active', i === index);
             });
         }
 
-        // Configurar evento para el menú desplegable
-        document.getElementById('productDropdown').addEventListener('change', function() {
-            if (this.value !== '') {
-                for (var j = 0; j < tabButtons.length; j++) {
-                    tabButtons[j].classList.remove('active');
-                }
-                var productId = parseInt(this.value);
-                var prod = getProductById(productId);
-                if (prod) renderProduct(prod);
-            }
-        });
+        function scc3NextProduct() {
+            scc3CurrentIndex = (scc3CurrentIndex + 1) % scc3Products.length;
+            scc3UpdateProduct(scc3CurrentIndex);
+        }
 
-        // Evento para el botón CTA
-        document.querySelector('.cta-button').addEventListener('click', function() {
-            // Aquí puedes agregar la lógica para contactar a un asesor
-            alert('Gracias por su interés. Un asesor se pondrá en contacto con usted pronto.');
-            // O redirigir a un formulario de contacto:
-            // window.location.href = '/contacto';
+        function scc3PreviousProduct() {
+            scc3CurrentIndex = (scc3CurrentIndex - 1 + scc3Products.length) % scc3Products.length;
+            scc3UpdateProduct(scc3CurrentIndex);
+        }
+
+        function scc3GoToProduct(index) {
+            scc3CurrentIndex = index;
+            scc3UpdateProduct(scc3CurrentIndex);
+        }
+
+        // Initialize
+        function scc3Init() {
+            // Create indicators
+            const indicatorsContainer = document.getElementById('scc3Indicators');
+            const tabsContainer = document.getElementById('scc3Tabs');
+
+            scc3Products.forEach((product, index) => {
+                const indicator = document.createElement('div');
+                indicator.className = 'scc3-indicator' + (index === 0 ? ' scc3-active' : '');
+                indicator.onclick = () => scc3GoToProduct(index);
+                indicatorsContainer.appendChild(indicator);
+
+                const tab = document.createElement('button');
+                tab.className = 'scc3-tab' + (index === 0 ? ' scc3-active' : '');
+                tab.type = 'button';
+                tab.textContent = product.code;
+                tab.onclick = () => scc3GoToProduct(index);
+                tabsContainer.appendChild(tab);
+            });
+
+            // Load first product
+            scc3UpdateProduct(0);
+
+            // Add initial animations to first product
+            setTimeout(() => {
+                document.getElementById('scc3MainImage').classList.add('scc3-active');
+                document.getElementById('scc3RightSection').classList.add('scc3-active');
+                document.querySelectorAll('.scc3-complement-item').forEach(item => {
+                    item.classList.add('scc3-active');
+                });
+                document.querySelectorAll('.scc3-characteristic').forEach(char => {
+                    char.classList.add('scc3-active');
+                });
+            }, 100);
+        }
+
+        // Start when page loads
+        scc3Init();
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') scc3PreviousProduct();
+            if (e.key === 'ArrowRight') scc3NextProduct();
         });
     </script>
- 
 
   </section>
 
@@ -1271,12 +1309,7 @@
 
 
 
-
-
-
-
-
-
+  
 
 
 
@@ -1361,6 +1394,222 @@
 
 
   <!-- 5ta seccion ideales para-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+        }
+
+        .proyectos-section {
+            padding: 80px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            color: #999;
+            font-weight: 600;
+            margin-bottom: 60px;
+            letter-spacing: -0.5px;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .project-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 500px;
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover .card-image {
+            transform: scale(1.05);
+        }
+
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 25px 30px;
+            transform: translateY(0);
+            transition: all 0.4s ease;
+        }
+
+        .project-card:hover .card-overlay {
+            background: rgba(0, 0, 0, 0.85);
+        }
+
+        .card-title {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 1200px) {
+            .cards-container {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .project-card {
+                height: 400px;
+            }
+
+            .card-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .proyectos-section {
+                padding: 40px 15px;
+            }
+
+            .project-card {
+                height: 350px;
+            }
+
+            .card-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+
+    <section class="proyectos-section">
+        <h2 class="section-title">Ideales para todo tipo de proyectos</h2>
+        
+        <div class="cards-container">
+            <div class="project-card" onclick="handleCardClick('patios')">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Patios y Cocheras" class="card-image">
+                <div class="card-overlay">
+                    <h3 class="card-title">Patios y Cocheras</h3>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="handleCardClick('domos')">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Domos y Tragaluces" class="card-image">
+                <div class="card-overlay">
+                    <h3 class="card-title">Domos y Tragaluces</h3>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="handleCardClick('bodegas')">
+                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80" alt="Bodegas y Almacenes" class="card-image">
+                <div class="card-overlay">
+                    <h3 class="card-title">Bodegas y Almacenes</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function handleCardClick(type) {
+            console.log(`Card clicked: ${type}`);
+            // Aquí puedes agregar la funcionalidad que desees
+            // Por ejemplo, redirigir a otra página o abrir un modal
+            alert(`Has seleccionado: ${type}`);
+        }
+
+        // Animación de entrada al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1870,6 +2119,8 @@
         padding: 0 20px;
         z-index: 2;
         overflow: hidden;
+        height: auto !important;
+        perspective: none !important;
     }
 
     .s5 .carousel-wrapper {
@@ -2190,6 +2441,8 @@
         max-width: 2000px;
         margin: 0 auto;
         position: relative;
+        height: auto !important;
+        perspective: none !important;
     }
 
     .s5 .s5-title {
@@ -2608,18 +2861,6 @@
         </div>
     </section>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -3071,7 +3312,7 @@
           <div class="footer-section">
             <h4>Contacto</h4>
             <p><i class="fas fa-phone"></i> 33 1219 5252</p>
-            <p><i class="fas fa-envelope"></i> ventas@laminasycomplementos.com</p>
+            <p><i class="fas fa-envelope"></i> ventas@laminadosyplasticos.com</p>
           </div>
 
           <div class="footer-section">
@@ -3085,7 +3326,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2025 Laminas y Complementos - Todos los derechos reservados.</p>
+        <p>&copy; 2025 Laminados y Plasticos - Todos los derechos reservados.</p>
         <div class="footer-social">
           <a href="#" aria-label="Facebook">
             <svg width="18" height="18" viewBox="0 0 320 512" aria-hidden="true">
