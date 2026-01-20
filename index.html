@@ -1096,7 +1096,26 @@
             }
 
             .scc3-right-section {
-                padding: 30px;
+                padding: 0;
+            }
+
+            .scc3-carousel-container {
+                padding: 8px 0;
+                width: 100vw;
+                max-width: 100vw;
+                margin-left: calc(50% - 50vw);
+                margin-right: calc(50% - 50vw);
+            }
+
+            .scc3-product-description {
+                text-align: justify;
+                text-justify: inter-word;
+                margin-bottom: 12px;
+                font-size: 0.9rem;
+                line-height: 1.35;
+                hyphens: auto;
+                overflow-wrap: anywhere;
+                word-break: break-word;
             }
         }
     </style>
@@ -1190,6 +1209,28 @@
 
         let scc3CurrentIndex = 0;
         let scc3AnimationTimeout;
+        let scc3AutoIntervalId;
+        let scc3ResumeTimeoutId;
+
+        function scc3StartAuto() {
+            scc3StopAuto();
+            scc3AutoIntervalId = setInterval(() => scc3NextProduct(), 8000);
+        }
+
+        function scc3StopAuto() {
+            if (scc3AutoIntervalId) {
+                clearInterval(scc3AutoIntervalId);
+                scc3AutoIntervalId = null;
+            }
+        }
+
+        function scc3PauseAndResume() {
+            scc3StopAuto();
+            if (scc3ResumeTimeoutId) clearTimeout(scc3ResumeTimeoutId);
+            scc3ResumeTimeoutId = setTimeout(() => {
+                scc3StartAuto();
+            }, 30000);
+        }
 
         function scc3CreateProductHTML(product) {
             return {
@@ -1277,14 +1318,14 @@
             scc3Products.forEach((product, index) => {
                 const indicator = document.createElement('div');
                 indicator.className = 'scc3-indicator' + (index === 0 ? ' scc3-active' : '');
-                indicator.onclick = () => scc3GoToProduct(index);
+                indicator.onclick = () => { scc3PauseAndResume(); scc3GoToProduct(index); };
                 indicatorsContainer.appendChild(indicator);
 
                 const tab = document.createElement('button');
                 tab.className = 'scc3-tab' + (index === 0 ? ' scc3-active' : '');
                 tab.type = 'button';
                 tab.textContent = product.code;
-                tab.onclick = () => scc3GoToProduct(index);
+                tab.onclick = () => { scc3PauseAndResume(); scc3GoToProduct(index); };
                 tabsContainer.appendChild(tab);
             });
 
@@ -1302,17 +1343,29 @@
                     char.classList.add('scc3-active');
                 });
             }, 100);
+
+            // Pause auto-rotation on any click/tap within the carousel area
+            const carouselContainer = document.querySelector('.scc3-carousel-container');
+            const mainImageEl = document.getElementById('scc3MainImage');
+            const rightSectionEl = document.getElementById('scc3RightSection');
+            [carouselContainer, mainImageEl, rightSectionEl].forEach(el => {
+                if (el) {
+                    el.addEventListener('pointerdown', scc3PauseAndResume, { passive: true });
+                    el.addEventListener('click', scc3PauseAndResume, { passive: true });
+                    el.addEventListener('touchstart', scc3PauseAndResume, { passive: true });
+                }
+            });
         }
 
         // Start when page loads
         scc3Init();
-        // Auto-rotate every 8 seconds
-        setInterval(() => scc3NextProduct(), 8000);
+        // Auto-rotate setup
+        scc3StartAuto();
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') scc3PreviousProduct();
-            if (e.key === 'ArrowRight') scc3NextProduct();
+            if (e.key === 'ArrowLeft') { scc3PauseAndResume(); scc3PreviousProduct(); }
+            if (e.key === 'ArrowRight') { scc3PauseAndResume(); scc3NextProduct(); }
         });
     </script>
 
